@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 const Table = () => {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [setSortBy] = useState(null);
+  const [sortBy, setSortBy] = useState(null);
+  const [sortOrder, setSortOrder] = useState('asc');
   const [currentPage, setCurrentPage] = useState(1);
   const recordsPerPage = 20;
 
@@ -27,15 +28,27 @@ const Table = () => {
   }, [currentPage, searchTerm]);
 
   const handleSort = (key) => {
-    setSortBy(key);
+    if (sortBy === key) {
+      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortBy(key);
+      setSortOrder('asc');
+    }
+  };
+
+  const sortData = (key) => {
     let sortedData;
     if (key === 'date') {
-      sortedData = [...data].sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+      sortedData = [...data].sort((a, b) => {
+        const dateA = new Date(a.created_at);
+        const dateB = new Date(b.created_at);
+        return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
+      });
     } else if (key === 'time') {
       sortedData = [...data].sort((a, b) => {
         const timeA = new Date(a.created_at).getTime();
         const timeB = new Date(b.created_at).getTime();
-        return timeA - timeB;
+        return sortOrder === 'asc' ? timeA - timeB : timeB - timeA;
       });
     } else {
       // Implement sorting logic for other keys if needed
@@ -45,10 +58,12 @@ const Table = () => {
 
   const sortDataByDate = () => {
     handleSort('date');
+    sortData('date');
   };
   
   const sortDataByTime = () => {
     handleSort('time');
+    sortData('time');
   };
 
   const nextPage = () => {
@@ -80,16 +95,16 @@ const Table = () => {
       </div>
 
       {currentRecords.length > 0 && (
-        <table style={{ fontFamily: "Poppins, sans-serif", margin: '0 auto', borderRadius: '10px', border: '2px solid #ccc', textAlign: 'left' }}>
+        <table style={{ fontFamily: "Poppins, sans-serif", margin: '0 auto', borderRadius: '10px', border: '1px solid #ccc', textAlign: 'left' }}>
           <thead>
             <tr>
-              <th onClick={() => handleSort('customer_name')} style={{ cursor: 'pointer', padding: '10px', borderBottom: '3px solid #ccc' }}>Sno</th>
-              <th onClick={() => handleSort('customer_name')} style={{ cursor: 'pointer', padding: '10px', borderBottom: '3px solid #ccc' }}>Customer Name</th>
-              <th onClick={() => handleSort('age')} style={{ cursor: 'pointer', padding: '10px', borderBottom: '3px solid #ccc' }}>Age</th>
-              <th onClick={() => handleSort('phone')} style={{ cursor: 'pointer', padding: '10px', borderBottom: '3px solid #ccc' }}>Phone</th>
-              <th onClick={() => handleSort('location')} style={{ cursor: 'pointer', padding: '10px', borderBottom: '3px solid #ccc' }}>Location</th>
-              <th onClick={() => handleSort('created_at')} style={{ cursor: 'pointer', padding: '10px', borderBottom: '3px solid #ccc' }}>Date</th>
-              <th onClick={() => handleSort('created_at')} style={{ cursor: 'pointer', padding: '10px', borderBottom: '3px solid #ccc' }}>Time</th>
+              <th onClick={() => handleSort('customer_name')} style={{ cursor: 'pointer', padding: '10px', borderBottom: '1px solid #ccc' }}>Sno</th>
+              <th onClick={() => handleSort('customer_name')} style={{ cursor: 'pointer', padding: '10px', borderBottom: '1px solid #ccc' }}>Customer Name</th>
+              <th onClick={() => handleSort('age')} style={{ cursor: 'pointer', padding: '10px', borderBottom: '1px solid #ccc' }}>Age</th>
+              <th onClick={() => handleSort('phone')} style={{ cursor: 'pointer', padding: '10px', borderBottom: '1px solid #ccc' }}>Phone</th>
+              <th onClick={() => handleSort('location')} style={{ cursor: 'pointer', padding: '10px', borderBottom: '1px solid #ccc' }}>Location</th>
+              <th onClick={() => handleSort('created_at')} style={{ cursor: 'pointer', padding: '10px', borderBottom: '1px solid #ccc' }}>Date</th>
+              <th onClick={() => handleSort('created_at')} style={{ cursor: 'pointer', padding: '10px', borderBottom: '1px solid #ccc' }}>Time</th>
             </tr>
           </thead>
           <tbody>
