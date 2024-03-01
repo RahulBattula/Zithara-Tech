@@ -9,3 +9,17 @@
 4. use the "postgres_queries.sql" file to create a table in the Postgresql database and add the credentails correctly in .env file. In my case I've used the default database named "postgres" and created a table in that database using name "zithara_tech".
 
 5. use the same command to run both frontend and backend using "npm start"
+
+### Technologies used:
+<div class="image-container">
+  <div>
+    <img width="96" height="96" src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/96/external-react-a-javascript-library-for-building-user-interfaces-logo-color-tal-revivo.png" alt="external-react-a-javascript-library-for-building-user-interfaces-logo-color-tal-revivo"/>
+  </div>
+  <div>
+    <img width="100" height="100" src="https://img.icons8.com/ios/100/express-js.png" alt="express-js"/>
+  </div>
+  <div>
+    <img width="96" height="96" src="https://img.icons8.com/color/144/postgreesql.png" alt="postgreesql"/>
+  </div>
+</div>
+
