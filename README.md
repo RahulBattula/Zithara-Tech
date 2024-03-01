@@ -6,6 +6,6 @@
 
 3. use "cd backend" to navigate into backend folder and install all the required dependencies using "npm install"
 
-4. use the "postgres_queries.sql" file to create a table in the Postgresql database and add the credentails correctly in .env file.
+4. use the "postgres_queries.sql" file to create a table in the Postgresql database and add the credentails correctly in .env file. In my case I've used the default database named "postgres" and created a table in that database using name "zithara_tech".
 
 5. use the same command to run both frontend and backend using "npm start"
