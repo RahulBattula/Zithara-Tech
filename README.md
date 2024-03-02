@@ -13,9 +13,9 @@
 ### Technologies used:
 
 <div style="display: flex; justify-content: center; padding-right: 30px;">
-  <img width="96" height="96" src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/96/external-react-a-javascript-library-for-building-user-interfaces-logo-color-tal-revivo.png" alt="external-react-a-javascript-library-for-building-user-interfaces-logo-color-tal-revivo" style="margin: 10px;">
-  <img width="100" height="100" src="https://img.icons8.com/ios/100/express-js.png" alt="express-js" style="margin: 10px;">
   <img width="96" height="96" src="https://img.icons8.com/color/144/postgreesql.png" alt="postgreesql" style="margin: 10px;">
+  <img width="100" height="100" src="https://img.icons8.com/ios/100/express-js.png" alt="express-js" style="margin: 10px;">
+  <img width="96" height="96" src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/96/external-react-a-javascript-library-for-building-user-interfaces-logo-color-tal-revivo.png" alt="external-react-a-javascript-library-for-building-user-interfaces-logo-color-tal-revivo" style="margin: 10px;">
   <img width="130" height="130" src="https://img.icons8.com/color/96/nodejs.png" alt="nodejs" style="margin: 10px;">
 </div>
 
